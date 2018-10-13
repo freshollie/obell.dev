@@ -1,0 +1,22 @@
+{
+  "name": "ollie.codes",
+  "version": "1.0.0",
+  "description": "Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freshollie/ollie.codes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/freshollie/ollie.codes/issues"
+  },
+  "homepage": "https://github.com/freshollie/ollie.codes#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

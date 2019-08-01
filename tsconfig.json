@@ -5,6 +5,7 @@
         "lib": ["dom"],             /* <-- required! */
         "jsx": "preserve",          /* <-- required! */
         "moduleResolution": "node", /* <-- required! */
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": true,
+        "plugins": [{ "name": "typescript-plugin-css-modules" }]
       }
 }

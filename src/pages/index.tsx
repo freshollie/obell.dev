@@ -1,20 +1,12 @@
-import React, { ReactNode } from "react";
-import { Link } from "gatsby";
-
+import React from "react";
 import Layout from "../components/layout";
-import Image from "../components/image";
 import SEO from "../components/seo";
+import Profile from "../components/Profile/Profile";
 
 const IndexPage: React.FC = () => (
   <Layout>
-    <SEO title="Oliver Bell - Portfolio" />
-    <h1>Hi, I'm Oliver</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image imgName="something" />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <SEO title="Portfolio" />
+    <Profile />
   </Layout>
 );
 

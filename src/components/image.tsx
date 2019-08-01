@@ -16,9 +16,10 @@ import { ImageSharpQuery } from "../../graphql-types";
 
 interface ImageProps {
   imgName: string;
+  className?: string;
 }
 
-const Image: React.FC<ImageProps> = ({ imgName }) => (
+const Image: React.FC<ImageProps> = ({ imgName, className }) => (
   <StaticQuery
     query={graphql`
       query ImageSharp {
@@ -42,7 +43,9 @@ const Image: React.FC<ImageProps> = ({ imgName }) => (
         return null;
       }
 
-      return <Img fluid={image.node.fluid as FluidObject} />;
+      return (
+        <Img className={className} fluid={image.node.fluid as FluidObject} />
+      );
     }}
   />
 );

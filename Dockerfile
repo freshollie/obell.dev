@@ -1,10 +1,20 @@
-FROM node:10
-WORKDIR /ollie.codes/
+FROM node:10-alpine as build
+WORKDIR /build/
 
-COPY package-lock.json package.json ./
-RUN npm install --production
+COPY yarn.lock package.json ./
+RUN yarn --frozen-lockfile
 
-COPY server.js .
-COPY src src
+COPY . .
+RUN yarn build
 
-ENTRYPOINT [ "node", "/ollie.codes/server.js" ]
+FROM node:10-alpine
+WORKDIR /ollie.codes
+ENV NODE_ENV=production
+
+COPY yarn.lock package.json ./
+RUN yarn --frozen-lockfile
+
+COPY public public
+COPY --from=build /build/.next /ollie.codes/.next
+
+ENTRYPOINT [ "yarn", "start" ]

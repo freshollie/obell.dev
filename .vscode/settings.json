@@ -1,0 +1,16 @@
+{
+  "eslint.validate": [
+    { "language": "javascript", "autoFix": true },
+    { "language": "javascriptreact", "autoFix": true },
+    { "language": "typescript", "autoFix": true },
+    { "language": "typescriptreact", "autoFix": true }
+  ],
+  "files.exclude": {
+    "**/node_modules": true
+  },
+  "eslint.autoFixOnSave": true,
+  "eslint.nodePath": "./node_modules",
+  "typescript.tsdk": "node_modules/typescript/lib", // Seems vscode went mental with an update?
+  "eslint.enable": true,
+  "jira-plugin.workingProject": ""
+}

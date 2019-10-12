@@ -1,5 +1,15 @@
 # ollie.codes
+
 A portfolio website
 
 ## Running
-`node server.js`
+
+```
+yarn && yarn dev
+```
+
+## Building
+
+```
+yarn build
+```

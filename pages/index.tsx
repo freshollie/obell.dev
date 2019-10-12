@@ -2,13 +2,7 @@ import React from "react";
 import { Emojione } from "react-emoji-render";
 import styled from "styled-components";
 import { Timeline, TimelineEvent } from "react-event-timeline";
-import {
-  FaGithub,
-  FaInstagram,
-  FaYoutube,
-  FaArrowRight,
-  FaLongArrowAltRight
-} from "react-icons/fa";
+import { FaGithub, FaInstagram, FaYoutube } from "react-icons/fa";
 
 import Layout from "../components/Layout";
 import ProfilePic from "../components/ProfilePic";
@@ -39,20 +33,21 @@ const Header = styled.section`
   }
 `;
 
+const HeaderSubtext = styled.div`
+  font-size: 0.7rem;
+`;
+
 const HeaderIcons = styled.div`
   margin-top: 1rem;
   display: flex;
   font-size: 3rem;
-  justify-content: flex-end;
-  align-items: flex-start;
-  @media only screen and (max-width: 800px) {
-    justify-content: center;
-    align-items: center;
-  }
+  justify-content: center;
+  align-items: center;
 `;
 
 const LinkIcon = styled.a`
-  padding: 0.8rem;
+  padding-right: 0.8rem;
+  padding-left: 0.8rem;
   color: white;
   text-decoration: none;
   transition: all 0.3s ease-in;
@@ -117,13 +112,23 @@ const Home: React.FC = () => (
             <LinkIcon href="https://github.com/freshollie">
               <FaGithub />
             </LinkIcon>
-            <LinkIcon href="https://instagram.com/freshollie">
+            <LinkIcon href="https://instagram.com/ol.bell">
               <FaInstagram />{" "}
             </LinkIcon>
-            <LinkIcon href="https://youtube.com/u/dodaxo1234567890roll">
+            <LinkIcon href="https://www.youtube.com/user/dodaxo1234567890roll">
               <FaYoutube />
             </LinkIcon>
           </HeaderIcons>
+          <HeaderSubtext>
+            Checkout{" "}
+            <WhiteLink href="https://github.com/freshollie/cv/raw/master/cv.pdf">
+              my cv
+            </WhiteLink>{" "}
+            or email me{" "}
+            <WhiteLink href="mailto:freshollie@gmail.com">
+              freshollie@gmail.com
+            </WhiteLink>
+          </HeaderSubtext>
         </div>
       </Header>
       <AboutSection>
@@ -147,7 +152,10 @@ const Home: React.FC = () => (
           codeformatting with any project I work on
         </li>
         <li>
-          <b>-</b> I automate everything, and love CI/CD
+          <b>-</b> I automate everything, and{" "}
+          <Link href="https://github.com/freshollie/ollie.codes/actions">
+            love CI/CD
+          </Link>
         </li>
         <li>
           <b>-</b> I have lots of experience{" "}
@@ -161,7 +169,7 @@ const Home: React.FC = () => (
         <h2>What I&apos;ve done</h2>
         <Timeline>
           <TimelineEvent
-            title={<h4>Associate Developer - YOOX Net-A-Porter</h4>}
+            title={<h4>Associate Developer - YooX Net-A-Porter</h4>}
             createdAt={<div>May 2019 - Now</div>}
             icon={<Emojione text=":handshake:" />}
             iconStyle={{ fontSize: "1.5rem" }}

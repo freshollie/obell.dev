@@ -3,7 +3,7 @@ name: Pipeline
 on: [push]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     strategy:
@@ -16,15 +16,14 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install, build, and test
+      - name: Lint
         run: |
           yarn
           yarn lint
-          yarn build
         env:
           CI: true
-  deploy:
-    depends-on: build
+  build:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master

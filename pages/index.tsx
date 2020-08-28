@@ -156,7 +156,7 @@ const Home: React.FC = () => (
         </li>
         <li>
           <b>-</b> I automate everything, and{" "}
-          <Link href="https://github.com/freshollie/ollie.codes/actions">
+          <Link href="https://github.com/freshollie/fresh-configurator/actions">
             love CI/CD
           </Link>
         </li>
@@ -172,7 +172,7 @@ const Home: React.FC = () => (
         <h2>What I&apos;ve done</h2>
         <Timeline>
           <TimelineEvent
-            title={<h4>Associate Developer - YooX Net-A-Porter</h4>}
+            title={<h4>Associate Developer - YOOX Net-a-Porter Group</h4>}
             createdAt={<div>May 2019 - Now</div>}
             icon={<Emojione text=":handshake:" />}
             iconStyle={{ fontSize: "1.5rem" }}
@@ -184,7 +184,11 @@ const Home: React.FC = () => (
             </li>
           </TimelineEvent>
           <TimelineEvent
-            title={<h4>BSc Computer Science - Coventry University</h4>}
+            title={
+              <h4>
+                BSc Computer Science (First Class Hons) - Coventry University
+              </h4>
+            }
             createdAt={<div>Septemer 2015 - May 2019</div>}
             icon={<Emojione text=":mortar_board:" />}
             iconStyle={{ fontSize: "1.5rem" }}

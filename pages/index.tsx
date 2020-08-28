@@ -134,18 +134,21 @@ const Home: React.FC = () => (
       <AboutSection>
         <h2>What I do</h2>
         <li>
-          <b>-</b> I specialise in writing functional, full-stack
-          TypeScript/JavaScript with Node.JS, React and Vue, with extensive
-          knowledge in writing Python/Typed Python.
+          <b>-</b> I specialise in writing functional,{" "}
+          <Link href="https://github.com/freshollie/fresh-configurator">
+            full-stack TypeScript/JavaScript with Node.JS, React
+          </Link>
+          , Angular, and Vue, with extensive knowledge in writing Python/Typed
+          Python
         </li>
         <li>
-          <b>-</b> I develop OSS with multiple languages in my freetime,
+          <b>-</b> I develop OSS with multiple languages in my free time,
           including{" "}
           <Link href="https://github.com/freshollie/monkeyboard-radio-android">
             Android Applications
           </Link>
-          , <Link href="https://github.com/freshollie/hqhero">WebApps</Link>,
-          and <Link href="https://github.com/freshollie/abridge">Tools</Link>
+          , <Link href="https://thattiktok.video">WebApps</Link>, and{" "}
+          <Link href="https://github.com/freshollie/abridge">Tools</Link>
         </li>
         <li>
           <b>-</b> I&apos;m a stickler for the linter, and I enforce automatic
@@ -162,7 +165,7 @@ const Home: React.FC = () => (
           <Link href="https://github.com/beefboard">
             designing, writing, and deploying
           </Link>{" "}
-          microservice-based horizontally-scalable software.
+          microservice-based horizontally-scalable software
         </li>
       </AboutSection>
       <HistorySection>
@@ -189,8 +192,7 @@ const Home: React.FC = () => (
           <TimelineEvent
             title={
               <h4>
-                Intern Software Engineer - Caterva GmbH / Allelion Energy System
-                GmbH
+                Software Engineer - Caterva GmbH / Allelion Energy System GmbH
               </h4>
             }
             createdAt={<div>August 2017 - September 2018</div>}
@@ -206,6 +208,16 @@ const Home: React.FC = () => (
               </div>
             }
             icon={<Emojione text=":handshake:" />}
+            iconStyle={{ fontSize: "1.5rem" }}
+          />
+          <TimelineEvent
+            title={<h4>Started programming</h4>}
+            createdAt={
+              <div>
+                <div>September 2012 - Present</div>
+              </div>
+            }
+            icon={<Emojione text=":computer:" />}
             iconStyle={{ fontSize: "1.5rem" }}
           />
         </Timeline>

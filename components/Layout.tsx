@@ -6,7 +6,7 @@ const Layout: React.FC = ({ children }) => (
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
-      <title>Oliver Bell - ollie.codes</title>
+      <title>Oliver Bell - obell.dev</title>
       <meta
         name="description"
         content="Programming portfolio for Oliver Bell"

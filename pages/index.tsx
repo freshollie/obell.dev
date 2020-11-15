@@ -12,7 +12,7 @@ const Header = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #6363ff;
+  background-color: #003366;
   padding: 3rem;
   color: white;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
@@ -34,6 +34,7 @@ const Header = styled.section`
 `;
 
 const HeaderSubtext = styled.div`
+  text-align: center;
   font-size: 0.7rem;
 `;
 
@@ -74,6 +75,10 @@ const WhiteLink = styled(Link)`
   color: white;
 `;
 
+const BulbLink = styled(Link)`
+  color: #e4228e;
+`;
+
 const HistorySection = styled.section`
   padding: 2rem;
   background-color: #e0e0e0;
@@ -101,9 +106,9 @@ const Home: React.FC = () => (
           </h1>
           <div>
             I do Software Engineering{" "}
-            <WhiteLink atLink href="http://ynap.com">
-              ynap
-            </WhiteLink>
+            <BulbLink atLink href="http://bulb.co.uk">
+              bulb
+            </BulbLink>
           </div>
         </div>
         <div>
@@ -125,9 +130,7 @@ const Home: React.FC = () => (
               my cv
             </WhiteLink>{" "}
             or email me{" "}
-            <WhiteLink href="mailto:freshollie@gmail.com">
-              freshollie@gmail.com
-            </WhiteLink>
+            <WhiteLink href="mailto:hi@obell.dev">hi@obell.dev</WhiteLink>
           </HeaderSubtext>
         </div>
       </Header>
@@ -172,8 +175,16 @@ const Home: React.FC = () => (
         <h2>What I&apos;ve done</h2>
         <Timeline>
           <TimelineEvent
+            title={<h4>Software Engineer III - Bulb Energy Ltd</h4>}
+            createdAt={<div>November 2020 - Now</div>}
+            icon={<Emojione text=":handshake:" />}
+            iconStyle={{ fontSize: "1.5rem" }}
+          >
+            <li>Full-stack Software Engineer</li>
+          </TimelineEvent>
+          <TimelineEvent
             title={<h4>Associate Developer - YOOX Net-a-Porter Group</h4>}
-            createdAt={<div>May 2019 - Now</div>}
+            createdAt={<div>May 2019 - November 2020</div>}
             icon={<Emojione text=":handshake:" />}
             iconStyle={{ fontSize: "1.5rem" }}
           >

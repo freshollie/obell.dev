@@ -11,6 +11,7 @@ const Layout: React.FC = ({ children }) => (
         name="description"
         content="Programming portfolio for Oliver Bell"
       />
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       <meta
         name="keywords"
         content="Oliver Bell, oliver bell, bell, 

@@ -13,7 +13,7 @@ const Header = styled.section`
   justify-content: space-between;
   align-items: center;
   background-color: #003366;
-  padding: 3rem;
+  padding: 6rem;
   color: white;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
   h1 {
@@ -30,6 +30,7 @@ const Header = styled.section`
     h1 {
       font-size: 2.5rem;
     }
+    padding: 3rem;
   }
 `;
 
@@ -61,13 +62,17 @@ const LinkIcon = styled.a`
 const AboutSection = styled.section`
   margin-top: -5vw;
   padding-top: 5vw;
-  padding: 2rem;
+  padding: 6rem;
   color: black;
   font-size: 1.3rem;
 
   li {
     margin-bottom: 1rem;
     list-style-type: none;
+  }
+
+  @media only screen and (max-width: 800px) {
+    padding: 2rem;
   }
 `;
 
@@ -80,9 +85,12 @@ const BulbLink = styled(Link)`
 `;
 
 const HistorySection = styled.section`
-  padding: 2rem;
+  padding: 6rem;
   background-color: #e0e0e0;
   font-size: 1.3rem;
+  @media only screen and (max-width: 800px) {
+    padding: 2rem;
+  }
 `;
 
 const Footer = styled.footer`

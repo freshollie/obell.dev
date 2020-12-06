@@ -22,7 +22,7 @@ const Link: React.FC<LinkProps> = ({
   children,
   href,
   className,
-  atLink = false
+  atLink = false,
 }) => (
   <StyledLink className={className} href={href}>
     {atLink && "@"}

@@ -1,12 +1,13 @@
 import React from "react";
 import { Emojione } from "react-emoji-render";
 import styled from "styled-components";
-import { Timeline, TimelineEvent } from "react-event-timeline";
 import { FaGithub, FaInstagram, FaYoutube } from "react-icons/fa";
+import Timeline from "../components/Timeline";
 
 import Layout from "../components/Layout";
 import ProfilePic from "../components/ProfilePic";
 import Link from "../components/Link";
+import history from "../data/history";
 
 const Header = styled.section`
   display: flex;
@@ -34,9 +35,16 @@ const Header = styled.section`
   }
 `;
 
-const HeaderSubtext = styled.div`
+const ProfileSubtext = styled.div`
   text-align: center;
-  font-size: 0.7rem;
+  font-size: 1rem;
+  padding-bottom: 2rem;
+`;
+
+const Profile = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const HeaderIcons = styled.div`
@@ -119,7 +127,7 @@ const Home: React.FC = () => (
             </BulbLink>
           </div>
         </div>
-        <div>
+        <Profile>
           <ProfilePic />
           <HeaderIcons>
             <LinkIcon href="https://github.com/freshollie">
@@ -132,15 +140,15 @@ const Home: React.FC = () => (
               <FaYoutube />
             </LinkIcon>
           </HeaderIcons>
-          <HeaderSubtext>
+          <ProfileSubtext>
             Checkout{" "}
             <WhiteLink href="https://github.com/freshollie/cv/raw/master/cv.pdf">
               my cv
             </WhiteLink>{" "}
             or email me{" "}
             <WhiteLink href="mailto:hi@obell.dev">hi@obell.dev</WhiteLink>
-          </HeaderSubtext>
-        </div>
+          </ProfileSubtext>
+        </Profile>
       </Header>
       <AboutSection>
         <h2>What I do</h2>
@@ -181,69 +189,7 @@ const Home: React.FC = () => (
       </AboutSection>
       <HistorySection>
         <h2>What I&apos;ve done</h2>
-        <Timeline>
-          <TimelineEvent
-            title={<h4>Software Engineer III - Bulb Energy Ltd</h4>}
-            createdAt={<div>November 2020 - Now</div>}
-            icon={<Emojione text=":handshake:" />}
-            iconStyle={{ fontSize: "1.5rem" }}
-          >
-            <li>Full-stack Software Engineer</li>
-          </TimelineEvent>
-          <TimelineEvent
-            title={<h4>Associate Developer - YOOX Net-a-Porter Group</h4>}
-            createdAt={<div>May 2019 - November 2020</div>}
-            icon={<Emojione text=":handshake:" />}
-            iconStyle={{ fontSize: "1.5rem" }}
-          >
-            <li>Full-stack TypeScript/JavaScript developer</li>
-            <li>
-              Manage all aspects of development from linting to deployment to
-              system design
-            </li>
-          </TimelineEvent>
-          <TimelineEvent
-            title={
-              <h4>
-                BSc Computer Science (First Class Hons) - Coventry University
-              </h4>
-            }
-            createdAt={<div>Septemer 2015 - May 2019</div>}
-            icon={<Emojione text=":mortar_board:" />}
-            iconStyle={{ fontSize: "1.5rem" }}
-          />
-          <TimelineEvent
-            title={
-              <h4>
-                Software Engineer - Caterva GmbH / Allelion Energy System GmbH
-              </h4>
-            }
-            createdAt={<div>August 2017 - September 2018</div>}
-            icon={<Emojione text=":handshake:" />}
-            iconStyle={{ fontSize: "1.5rem" }}
-          />
-          <TimelineEvent
-            title={<h4>Intern Software Developer - Indicater Ltd</h4>}
-            createdAt={
-              <div>
-                <div>July 2015 - September 2015</div>
-                <div>July 2014 - August 2014</div>
-              </div>
-            }
-            icon={<Emojione text=":handshake:" />}
-            iconStyle={{ fontSize: "1.5rem" }}
-          />
-          <TimelineEvent
-            title={<h4>Started programming</h4>}
-            createdAt={
-              <div>
-                <div>September 2012 - Present</div>
-              </div>
-            }
-            icon={<Emojione text=":computer:" />}
-            iconStyle={{ fontSize: "1.5rem" }}
-          />
-        </Timeline>
+        <Timeline events={history} />
       </HistorySection>
     </main>
     <Footer>

@@ -1,34 +1,67 @@
 module.exports = {
-  plugins: ["react", "react-hooks", "@typescript-eslint", "prettier", "import"],
-  extends: [
-    "airbnb",
-    "airbnb/hooks",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended",
-    "prettier/react"
+  plugins: [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "prettier",
+    "import"
   ],
-  settings: {
-    "import/resolver": {
-      node: {
-        extensions: [".js", ".jsx", ".ts", ".tsx"]
-      }
-    }
-  },
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    warnOnUnsupportedTypeScriptVersion: false
-  },
+  extends: [
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:prettier/recommended",
+    "prettier/react",
+    "prettier/@typescript-eslint",
+  ],
   rules: {
-    "react/jsx-filename-extension": [1, { extensions: [".tsx"] }], // tsx extension for typescript
-    "react/prop-types": ["off"], // No proptypes for typescript
-    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/explicit-function-return-type": [
       "error",
+      { allowExpressions: true, allowTypedFunctionExpressions: true },
+    ],
+    "@typescript-eslint/no-misused-promises": [
+      "error",
       {
-        allowExpressions: true,
-        allowTypedFunctionExpressions: true
-      }
-    ]
-  }
+        checksVoidReturn: false,
+      },
+    ],
+    "react/prop-types": ["off"],
+    "react/function-component-definition": [
+      "error",
+      {
+        namedComponents: "arrow-function",
+        unnamedComponents: "arrow-function",
+      },
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        devDependencies: [
+          "**/*.spec.{ts,tsx}",
+        ],
+      },
+    ],
+    "react/jsx-filename-extension": [1, { extensions: [".tsx"] }],
+    "@typescript-eslint/no-require-imports": "error",
+  },
+  parserOptions: {
+    project: "tsconfig.json",
+    warnOnUnsupportedTypeScriptVersion: false,
+  },
+  overrides: [
+    {
+      files: ["**/*.spec.{ts,tsx}", "**/__mocks__/**/*"],
+      env: {
+        jest: true,
+      },
+      rules: {
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "react/jsx-props-no-spreading": "off",
+        "no-constant-condition": "off",
+        "no-empty": "off",
+        "no-await-in-loop": "off",
+      },
+    }
+  ],
 };

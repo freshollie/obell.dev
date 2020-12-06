@@ -1,8 +1,10 @@
 import React from "react";
 import Head from "next/head";
+import GlobalStyle from "../theme/GlobalStyle";
 
 const Layout: React.FC = ({ children }) => (
   <>
+    <GlobalStyle />
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
@@ -20,20 +22,6 @@ const Layout: React.FC = ({ children }) => (
       />
     </Head>
     {children}
-    <style jsx global>
-      {`
-        html {
-          font-family: sans-serif;
-          -ms-text-size-adjust: 100%;
-          -webkit-text-size-adjust: 100%;
-        }
-        body {
-          margin: 0;
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;
-        }
-      `}
-    </style>
   </>
 );
 

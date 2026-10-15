@@ -9,15 +9,17 @@ body {
 }
 
 a {
-  box-shadow: inset 0 0 0 0 #ffffff;
-  color: #ffffff;
+  color: #fff;
+  text-decoration: none;
   margin: 0 -.25rem;
   padding: 0 .25rem;
-  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+  background: linear-gradient(#fff, #fff) no-repeat left / 0% 100%;
+  transition: color .3s ease-in-out, background-size .3s ease-in-out;
 }
+
 a:hover {
-  box-shadow: inset 100px 0 0 0 #ffffff;
-  color: black;
+  background-size: 100% 100%;
+  color: #000;
 }
 
 .main {
@@ -36,6 +38,7 @@ a:hover {
 
 .header {
     width: 100%;
+    height: 300px;
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid white;
@@ -45,6 +48,8 @@ a:hover {
     min-width: 300px;
     max-width: 300px;
     border-right: 1px solid white;
+    display: flex;
+    flex-direction: column;
 }
 
 .header-photo {
@@ -71,7 +76,10 @@ a:hover {
 }
 
 .sub-header-links {
-    padding: 16px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 .job-titles {
@@ -82,14 +90,30 @@ a:hover {
     padding-bottom: 12px;
 }
 
-.links {
+.link-column {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.link-segment {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    vertical-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    letter-spacing: -1px;
+    
 }
 
 .bio {
-    padding: 16px;
+    padding: 8px;
     letter-spacing: 0rem;
     font-size: 12px;
     border-bottom: 1px solid white;
@@ -122,7 +146,7 @@ a:hover {
     font-weight: lighter;
 }
 
-.home-rave-section {
+.portfolio-main {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -130,32 +154,61 @@ a:hover {
     height: 500px;
 }
 
-.home-rave-pics {
+.portfolio-stage {
     width: 100%;
+    overflow: hidden;
 }
 
-.home-rave-bio {
+.portfolio-links {
     height: 100%;
     min-width: 400px;
     border-left: 1px solid white;
+    display: flex;
+    flex-direction: column;
 }
 
-.home-rave-bio-copy {
+.truss {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;    
+}
+
+.moving-head {
+    width: 10px;
+    height: 7px;
+    background-color: rgb(255, 0, 255);
+    position: relative;
+
+}
+
+.moving-head-beam {
+    position: absolute;
+    height: 1000px;
+    width: 150px;
     
+    background-image:linear-gradient(to bottom, rgb(255, 0, 255), rgb(0, 0, 0));
+    opacity: 0.7;
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    transform-origin: top center; 
+  
+    left: 50%;
+    transform: translateX(-50%); 
+    z-index: -1;
 }
 
-.home-rave-title-container {
+.portfolio-project-title-container {
     padding: 16px;
     font-size: 56px;
     line-height: 48px;
     border-bottom: 1px solid white;
-
+    height: 100%;
 }
 
-.home-rave-title {
+.portfolio-project-title {
     margin: 0;
     text-align: end;
     width: 100%;
+    letter-spacing: -5px;
 }
 
 .bell-fest-section {

@@ -1,7 +1,31 @@
 <html>
   <head>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <link rel="stylesheet" href="styles.css" />
     <title>Oliver Bell | Software Engineer & Lighting Technician</title>
+    <script lang="javascript">
+      const nextFrame = () =>
+        new Promise((resolve) => requestAnimationFrame(() => resolve()));
+
+      const movingHead = async (address, phase) => {
+        const beam = document.querySelectorAll(".moving-head-beam")[address];
+        let it = 0 + (address * phase);
+        while (true) {
+          const angle = Math.sin(it / 90) * 30;
+          beam.setAttribute("style", `transform: translateX(-50%) rotate(${angle}deg)`);
+          await nextFrame();
+          it++;
+        }
+      };
+
+      const phase = Math.random() * 90 + 45
+
+      window.addEventListener("load", () => {
+        document
+          .querySelectorAll(".moving-head-beam")
+          .forEach((_, i) => movingHead(i, phase));
+      });
+    </script>
   </head>
   <body>
     <div class="main">
@@ -15,20 +39,32 @@
           </div>
           <div class="header-bio">
             <div class="bio">
-              <p>Hi I'm Ollie!</p>
-              <p>
+              <p style="font-size: 18px;">Hi I'm Ollie!</p>
+              <p style="text-align: justify">
                 I'm an aspiring Lighting Technician with a background in
                 Software Engineering. I have a particular interest in running
                 lights for Electronic Music, but I'm keen for any role in the
-                live events industry that might eventually get me there.
+                live events industry that might get me there. Check out my work!
               </p>
             </div>
             <div class="sub-header-links">
-              <div class="links">
-                <a href="">YouTube</a>
-                <a href="">Email</a>
-                <a href="">GitHub</a>
-                <a href="">CV</a>
+              <div class="link-column" style="border-right: 1px solid white">
+                <a
+                  class="link-segment"
+                  href=""
+                  style="border-bottom: 1px solid white"
+                  ><span>YouTube</span></a
+                >
+                <a class="link-segment" href="">Email</a>
+              </div>
+              <div class="link-column">
+                <a
+                  class="link-segment"
+                  href=""
+                  style="border-bottom: 1px solid white"
+                  >GitHub</a
+                >
+                <a class="link-segment" href="">CV</a>
               </div>
             </div>
           </div>
@@ -40,19 +76,54 @@
               title="Me at Tangled Roots - Boomtown 2024"
             />
           </div>
-
-           
         </div>
         <div class="portfolio">
           <div class="portfolio-header">
             <h2 class="portfolio-title">Portfolio</h2>
           </div>
-          <div class="home-rave-section">
-            <div class="home-rave-pics"></div>
-            <div class="home-rave-bio">
-              <div class="home-rave-title-container">
-                <h3 class="home-rave-title">HOME</h3>
-                <h3 class="home-rave-title">RAVE</h3>
+          <div class="portfolio-main">
+            <div class="portfolio-stage">
+              <div class="truss">
+                <div class="moving-head">
+                  <div class="moving-head-beam"></div>
+                </div>
+                <div class="moving-head">
+                  <div class="moving-head-beam"></div>
+                </div>
+                <div class="moving-head">
+                  <div class="moving-head-beam"></div>
+                </div>
+                <div class="moving-head">
+                  <div class="moving-head-beam"></div>
+                </div>
+                <div class="moving-head">
+                  <div class="moving-head-beam"></div>
+                </div>
+                <div class="moving-head">
+                  <div class="moving-head-beam"></div>
+                </div>
+                <div class="moving-head">
+                  <div class="moving-head-beam"></div>
+                </div>
+                <div class="moving-head">
+                  <div class="moving-head-beam"></div>
+                </div>
+                <div class="moving-head">
+                  <div class="moving-head-beam"></div>
+                </div>
+                <div class="moving-head">
+                  <div class="moving-head-beam"></div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-links">
+              <div class="portfolio-project-title-container">
+                <h3 class="portfolio-project-title">HOME</h3>
+                <h3 class="portfolio-project-title">RAVE</h3>
+              </div>
+               <div class="portfolio-project-title-container">
+                <h3 class="portfolio-project-title">BELL</h3>
+                <h3 class="portfolio-project-title">FEST</h3>
               </div>
             </div>
           </div>
@@ -61,7 +132,7 @@
           <div class="portfolio-header">
             <h2 class="portfolio-title">Software</h2>
           </div>
-          <div style="height: 300px;"></div>
+          <div style="height: 300px"></div>
         </div>
       </div>
     </div>

@@ -74,7 +74,7 @@ a:hover {
 }
 
 .column {
-    min-width: 0;              /* lets the flex item actually shrink */
+  min-width: 0;
   box-sizing: border-box;
   width: 100%;
   margin-left: 32px;
@@ -286,6 +286,10 @@ a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.portfolio-bio-content-stats :last-child {
+  border-right: none;
 }
 
 .stage-floor {

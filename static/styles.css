@@ -61,6 +61,8 @@ a:hover {
   width: 100%;
   display: flex;
   justify-content: center;
+  overflow-x: clip;
+  box-sizing: border-box;
 }
 
 .center {
@@ -72,6 +74,8 @@ a:hover {
 }
 
 .column {
+    min-width: 0;              /* lets the flex item actually shrink */
+  box-sizing: border-box;
   width: 100%;
   margin-left: 32px;
   margin-right: 32px;
@@ -233,11 +237,14 @@ a:hover {
 
 .highlight-video {
     border: 1px solid white;
-  width: 640px;
-  height: 480px;
+  width: 100%;
+  max-width: 848px;
+  max-height: 480px;
+  height: 100%;
   margin: 16px;
   background-color: black;
   overflow: hidden;
+   margin: 64px;
 }
 
 .portfolio-bio {
@@ -316,13 +323,14 @@ a:hover {
   width: 150px;
 
   background-image: linear-gradient(to bottom, rgb(255, 0, 255), rgb(0, 0, 0));
-  opacity: 0.7;
+  opacity: 0;
   clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
   transform-origin: top center;
 
   left: 50%;
   transform: translateX(-50%);
   z-index: -1;
+  transition: opacity 1s;
 }
 
 .laser-beam {
@@ -331,13 +339,14 @@ a:hover {
   width: 15px;
 
   background-image: linear-gradient(to bottom, rgb(0, 183, 255), rgb(0, 0, 0));
-  opacity: 0.7;
+  opacity: 0;
   clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
   transform-origin: top center;
 
   left: 50%;
   transform: translateX(-50%);
   z-index: -1;
+  transition: opacity 1s;
 }
 
 .portfolio-project-header {
@@ -375,6 +384,19 @@ a:hover {
   padding: 4px;
 }
 
+@media (max-width: 1350px) {
+    .highlight-video {
+        width: 80%;
+        height: 320px;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .column { margin-left: 0; margin-right: 0; border: none; }
+    
+}
+    
 @media (max-width: 1050px) {
   .header {
     width: 100%;
@@ -429,19 +451,25 @@ a:hover {
 
   .moving-head-beam {
     height: 2000px;
+    width: 300px;
   }
-}
 
-@media (max-width: 1800px) {
-    .highlight-video {
-        width: 400px;
-        height: 300px;
+  .highlight-video {
+       width: 80%;
+        height: 320px;
     }
 }
 
-@media (max-width: 1500px) {
-  .portfolio-photo {
-    width: 250px;
-    height: 175px;
-  }
+@media (max-height: 800px) {
+    .link-segment {
+            height: 50px;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .highlight-video {
+       width: 320px;
+        height: 180px;
+    }
 }

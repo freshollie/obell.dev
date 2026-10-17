@@ -17,7 +17,7 @@
           const angle = Math.sin(it / 90) * 30;
           beam.setAttribute(
             "style",
-            `transform: translateX(-50%) rotate(${angle}deg);`,
+            `transform: translateX(-50%) rotate(${angle}deg);` + `opacity: 0.7;`,
           );
           await nextFrame();
           it++;
@@ -35,7 +35,7 @@
           beam.setAttribute(
             "style",
             `transform: translateX(-50%) rotate(${angle + 180}deg); ` +
-              `background-image: linear-gradient(to bottom, ${id % 3 != 0 ? "rgb(0, 183, 255)" : "rgb(255, 0, 0)"}, rgb(0, 0, 0));`,
+              `background-image: linear-gradient(to bottom, ${id % 3 != 0 ? "rgb(0, 183, 255)" : "rgb(255, 0, 0)"}, rgb(0, 0, 0));opacity: 0.7;`,
           );
           await nextFrame();
           if (opposite) {
@@ -185,11 +185,7 @@
                   <tbody>
                     <tr>
                       <td>What</td>
-                      <td>A multi genre series of electronic music events</td>
-                    </tr>
-                    <tr>
-                      <td>Role</td>
-                      <td>Design, curation, build, and operation</td>
+                      <td>A multi genre series of electronic music events. Designed, curationed, built, and operated by me</td>
                     </tr>
                     <tr>
                       <td>Control</td>
@@ -267,7 +263,8 @@
                     width="100%"
                     height="100%"
                     src="https://www.youtube.com/embed/n0BqVNxBdHQ?si=SH5aQJVhKBIcqsCr&amp;controls=0&amp;start=255"
-                    title="YouTube video player"
+                      srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/n0BqVNxBdHQ?autoplay=1&controls=0&start=255><img src=https://img.youtube.com/vi/n0BqVNxBdHQ/hqdefault.jpg alt='Home Rave 8.0'><span>▶</span></a>"
+                    title="Home Rave 8.0"
                     frameborder="0"
                     allow="
                       accelerometer;
@@ -283,12 +280,12 @@
                   ></iframe>
                 </div>
                 <div class="portfolio-stage-content">
+                  <!-- <div class="portfolio-photo"></div>
                   <div class="portfolio-photo"></div>
                   <div class="portfolio-photo"></div>
                   <div class="portfolio-photo"></div>
                   <div class="portfolio-photo"></div>
-                  <div class="portfolio-photo"></div>
-                  <div class="portfolio-photo"></div>
+                  <div class="portfolio-photo"></div> -->
                 </div>
               </div>
             </div>
@@ -327,6 +324,10 @@
                 </div>
                 <table>
                   <tbody>
+                    <tr>
+                      <td>What</td>
+                      <td>Family live music festival</td>
+                    </tr>
                     <tr>
                       <td>Lasers</td>
                       <td>Installed and safely operated 2 x 3W show lasers</td>
@@ -370,6 +371,7 @@
                     width="100%"
                     height="100%"
                     src="https://www.youtube.com/embed/tM7PJp5xd_k?si=cTqsV56Z-Y1kPdhp&amp;controls=0&amp;start=1390"
+                    srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/tM7PJp5xd_k?autoplay=1&start=1390><img src=https://img.youtube.com/vi/tM7PJp5xd_k/hqdefault.jpg alt='Home Rave 8.0'><span>▶</span></a>"
                     title="YouTube video player"
                     frameborder="0"
                     allow="
@@ -386,12 +388,12 @@
                   ></iframe>
                 </div>
                 <div class="portfolio-stage-content">
+                  <!-- <div class="portfolio-photo"></div>
                   <div class="portfolio-photo"></div>
                   <div class="portfolio-photo"></div>
                   <div class="portfolio-photo"></div>
                   <div class="portfolio-photo"></div>
-                  <div class="portfolio-photo"></div>
-                  <div class="portfolio-photo"></div>
+                  <div class="portfolio-photo"></div> -->
                 </div>
               </div>
               <div style="display: flex; justify-content: center">
@@ -461,7 +463,7 @@
             </div>
           </div>
         </div>
-        <div class="portfolio">
+        <!-- <div class="portfolio">
           <div class="portfolio-header">
             <div class="portfolio-title-container">
               <h2 class="portfolio-title">Software</h2>
@@ -472,7 +474,7 @@
               <span>Content under construction</span>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="footer">
           <p style="margin: 0">Crafted by hand - © Oliver Bell (2026)</p>

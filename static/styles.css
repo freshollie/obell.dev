@@ -1,20 +1,55 @@
 body {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: black;
-    color: white;
-    overscroll-behavior: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+  color: white;
+  overscroll-behavior: none;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+}
+table td,
+table th {
+  border: 1px solid white;
+}
+table tr:first-child td {
+  border-top: 0;
+}
+table tr:last-child td {
+  border-bottom: 0;
+}
+table tr td:first-child,
+table tr th:first-child {
+  border-left: 0;
+}
+table tr td:last-child,
+table tr th:last-child {
+  border-right: 0;
+}
+
+table td {
+  padding: 8px;
 }
 
 a {
   color: #fff;
-  text-decoration: none;
-  margin: 0 -.25rem;
-  padding: 0 .25rem;
-  background: linear-gradient(#fff, #fff) no-repeat left / 0% 100%;
-  transition: color .3s ease-in-out, background-size .3s ease-in-out;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  background: linear-gradient(rgb(0, 255, 0), rgb(0, 255, 0)) no-repeat left /
+    0% 100%;
+  transition:
+    color 0.3s ease-in-out,
+    background-size 0.3s ease-in-out;
+  text-decoration-color: rgb(0, 255, 0);
 }
 
 a:hover {
@@ -23,194 +58,390 @@ a:hover {
 }
 
 .main {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .column {
-    width: 100%;
-    margin-left: 32px;
-    margin-right: 32px;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
+  width: 100%;
+  margin-left: 32px;
+  margin-right: 32px;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
 }
 
 .header {
-    width: 100%;
-    height: 300px;
-    display: flex;
-    flex-direction: row;
-    border-bottom: 1px solid white;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid white;
 }
 
 .header-bio {
-    min-width: 300px;
-    max-width: 300px;
-    border-right: 1px solid white;
-    display: flex;
-    flex-direction: column;
+  min-width: 300px;
+  max-width: 300px;
+  border-right: 1px solid white;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-right {
+  width: 100%;
+  overflow: hidden;
 }
 
 .header-photo {
-    width: 100%; 
-    min-width: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  min-width: 250px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-title {
-    min-width: 320px;
-    border-right: 1px solid white;
+  min-width: 320px;
+  border-right: 1px solid white;
 }
 
 .title-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 
-    padding-left: 16px;
-    padding-right: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .sub-header-links {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 .job-titles {
-    margin: 0;
-    letter-spacing: -2px;
-    font-size: 32px;
-    text-align: center;
-    padding-bottom: 12px;
+  margin: 0;
+  letter-spacing: -2px;
+  font-size: 32px;
+  text-align: center;
+  padding-bottom: 12px;
 }
 
 .link-column {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-
 .link-segment {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-    vertical-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    letter-spacing: -1px;
-    
+  height: 150px;
+  min-height: 50px;
+  font-size: 24px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  letter-spacing: -1px;
 }
 
 .bio {
-    padding: 8px;
-    letter-spacing: 0rem;
-    font-size: 12px;
-    border-bottom: 1px solid white;
+  padding: 12px;
+  letter-spacing: 0rem;
+  font-size: 14px;
+  border-bottom: 1px solid white;
+  height: 100%;
 }
 
 .title {
-    line-height: 90px;
-    font-size: 120px;
-    letter-spacing: -8px;
-    font-weight: lighter;
-    margin: 0;
+  line-height: 90px;
+  font-size: 120px;
+  letter-spacing: -8px;
+  font-weight: lighter;
+  margin: 0;
 }
 
 .portfolio-header {
-    width: 100%;
-    border-bottom: 1px solid white;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  border-bottom: 1px solid white;
+  overflow: hidden;
+}
+
+.portfolio-title-container {
+  display: flex;
+  justify-content: center;
 }
 
 .portfolio {
-    width: 100%;
+  width: 100%;
 }
 
 .portfolio-title {
-    font-size: 96px;
-    letter-spacing: -5px;
-    margin: 0;
-    padding: 32px;
-    font-weight: lighter;
+  font-size: 96px;
+  letter-spacing: -5px;
+  margin: 0;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  font-weight: lighter;
 }
 
 .portfolio-main {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    border-bottom: 1px solid white;
-    height: 500px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-bottom: 1px solid white;
+  height: 900px;
 }
 
 .portfolio-stage {
-    width: 100%;
-    overflow: hidden;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-.portfolio-links {
-    height: 100%;
-    min-width: 400px;
-    border-left: 1px solid white;
-    display: flex;
-    flex-direction: column;
+.portfolio-stage-content {
+  display: flex;
+  width: 100%;
+  max-width: 1600px;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.portfolio-photo {
+  border: 1px solid white;
+  width: 300px;
+  height: 200px;
+  margin: 16px;
+  background-color: black;
+}
+
+.highlight-video {
+    border: 1px solid white;
+  width: 640px;
+  height: 480px;
+  margin: 16px;
+  background-color: black;
+  overflow: hidden;
+}
+
+.portfolio-bio {
+  height: 100%;
+  min-width: 400px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-bio-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.portfolio-bio-content-sub-header {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid white;
+  padding: 8px;
+}
+
+.portfolio-job-title {
+  font-size: 32px;
+}
+
+.portfolio-bio-content-stats {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid white;
+  height: 150px;
+}
+
+.portfolio-bio-content-stat {
+  width: 100%;
+  border-right: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stage-floor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px;
 }
 
 .truss {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;    
+  /* max-height: 0px; */
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }
 
 .moving-head {
-    width: 10px;
-    height: 7px;
-    background-color: rgb(255, 0, 255);
-    position: relative;
+  width: 8px;
+  height: 4px;
+  background-color: rgb(255, 0, 255);
+  position: relative;
+}
 
+.laser {
+  min-width: 5px;
+  min-height: 5px;
+  background-color: rgb(0, 183, 255);
+  position: relative;
+  border-radius: 10px;
 }
 
 .moving-head-beam {
-    position: absolute;
-    height: 1000px;
-    width: 150px;
-    
-    background-image:linear-gradient(to bottom, rgb(255, 0, 255), rgb(0, 0, 0));
-    opacity: 0.7;
-    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-    transform-origin: top center; 
-  
-    left: 50%;
-    transform: translateX(-50%); 
-    z-index: -1;
+  position: absolute;
+  height: 1200px;
+  width: 150px;
+
+  background-image: linear-gradient(to bottom, rgb(255, 0, 255), rgb(0, 0, 0));
+  opacity: 0.7;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  transform-origin: top center;
+
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.laser-beam {
+  position: absolute;
+  height: 1400px;
+  width: 15px;
+
+  background-image: linear-gradient(to bottom, rgb(0, 183, 255), rgb(0, 0, 0));
+  opacity: 0.7;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  transform-origin: top center;
+
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.portfolio-project-header {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border-bottom: 1px solid white;
 }
 
 .portfolio-project-title-container {
-    padding: 16px;
-    font-size: 56px;
-    line-height: 48px;
-    border-bottom: 1px solid white;
-    height: 100%;
+  font-size: 56px;
+  line-height: 52px;
 }
 
 .portfolio-project-title {
-    margin: 0;
-    text-align: end;
-    width: 100%;
-    letter-spacing: -5px;
+  margin: 0;
+  width: 100%;
+  letter-spacing: -5px;
 }
 
 .bell-fest-section {
-    height: 500px;
+  height: 500px;
+}
+
+.portfolio-selected {
+  background-color: rgb(255, 0, 255);
+  color: black;
+}
+
+.footer {
+  border-top: 1px solid white;
+  font-size: 12px;
+  display: flex;
+  justify-content: end;
+  padding: 4px;
+}
+
+@media (max-width: 1050px) {
+  .header {
+    width: 100%;
+    height: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid white;
+  }
+
+  .header-title {
+    border-bottom: 1px solid white;
+    border-right: unset;
+    width: 100%;
+    text-align: center;
+  }
+
+  .title-container {
+    padding: 16px;
+  }
+
+  .title {
+    padding-left: unset !important;
+  }
+
+  .header-bio {
+    max-width: 100%;
+    border-right: unset;
+    border-bottom: 1px solid white;
+  }
+
+  .portfolio-main {
+    flex-direction: column !important;
+    height: unset;
+  }
+
+  .portfolio-bio {
+    border-left: unset !important;
+    border-bottom: 1px solid white;
+    min-width: unset;
+    max-width: unset;
+    width: 100%;
+  }
+
+  .portfolio-photo {
+    width: 100%;
+  }
+
+  .laser-beam {
+    height: 2000px;
+  }
+
+  .moving-head-beam {
+    height: 2000px;
+  }
+}
+
+@media (max-width: 1800px) {
+    .highlight-video {
+        width: 400px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 1500px) {
+  .portfolio-photo {
+    width: 250px;
+    height: 175px;
+  }
 }

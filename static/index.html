@@ -1,6 +1,9 @@
 <html>
   <head>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+      name="viewport"
+    />
     <link rel="stylesheet" href="styles.css" />
     <title>Oliver Bell | Software Engineer & Lighting Technician</title>
     <script lang="javascript">
@@ -9,21 +12,77 @@
 
       const movingHead = async (address, phase) => {
         const beam = document.querySelectorAll(".moving-head-beam")[address];
-        let it = 0 + (address * phase);
+        let it = 0 + address * phase;
         while (true) {
           const angle = Math.sin(it / 90) * 30;
-          beam.setAttribute("style", `transform: translateX(-50%) rotate(${angle}deg)`);
+          beam.setAttribute(
+            "style",
+            `transform: translateX(-50%) rotate(${angle}deg);`,
+          );
           await nextFrame();
           it++;
         }
       };
 
-      const phase = Math.random() * 90 + 45
+      const laserBeam = async (root, id, phase, frames) => {
+        const beam = root.querySelectorAll(".laser-beam")[id];
+        const opposite = beam.parentElement
+          .getAttribute("class")
+          .includes("opposite");
+        let it = 0 + id * (phase * (opposite ? -1 : 1));
+        for (let i = 0; i < frames; i++) {
+          const angle = Math.sin(it / 160) * 45;
+          beam.setAttribute(
+            "style",
+            `transform: translateX(-50%) rotate(${angle + 180}deg); ` +
+              `background-image: linear-gradient(to bottom, ${id % 3 != 0 ? "rgb(0, 183, 255)" : "rgb(255, 0, 0)"}, rgb(0, 0, 0));`,
+          );
+          await nextFrame();
+          if (opposite) {
+            it++;
+          } else {
+            it--;
+          }
+        }
+      };
+
+      const phase = Math.random() * 180 + 45;
+
+      const runLasers = async () => {
+        while (true) {
+          const laserPrograms = [
+            255,
+            32,
+            625,
+            530,
+            435,
+            249,
+            601,
+            365,
+            400,
+            668,
+            100,
+            82,
+            Math.random() * 720,
+          ];
+          const frames = Math.random() * 300 + 60;
+          const laserPhase =
+            laserPrograms[Math.floor(Math.random() * laserPrograms.length)];
+          await Promise.all(
+            [...document.querySelectorAll(".laser")].flatMap((laser) =>
+              [...laser.querySelectorAll(".laser-beam")].map((_, i) =>
+                laserBeam(laser, i, laserPhase, frames),
+              ),
+            ),
+          );
+        }
+      };
 
       window.addEventListener("load", () => {
         document
           .querySelectorAll(".moving-head-beam")
           .forEach((_, i) => movingHead(i, phase));
+        runLasers();
       });
     </script>
   </head>
@@ -39,49 +98,130 @@
           </div>
           <div class="header-bio">
             <div class="bio">
-              <p style="font-size: 18px;">Hi I'm Ollie!</p>
+              <p style="font-weight: bold">Hi I'm Ollie!</p>
               <p style="text-align: justify">
-                I'm an aspiring Lighting Technician with a background in
-                Software Engineering. I have a particular interest in running
-                lights for Electronic Music, but I'm keen for any role in the
-                live events industry that might get me there. Check out my work!
+                I'm a Software Engineer, transitioning to a full-time career in
+                the live events industry. I have a particular interest in
+                designing & operating lights for Electronic Music shows, but I'm
+                keen for any role in live events that might get me there. Check
+                out my work!
               </p>
             </div>
             <div class="sub-header-links">
               <div class="link-column" style="border-right: 1px solid white">
                 <a
                   class="link-segment"
-                  href=""
+                  href="https://github.com/@freshollie"
                   style="border-bottom: 1px solid white"
                   ><span>YouTube</span></a
                 >
-                <a class="link-segment" href="">Email</a>
+                <a class="link-segment" href="mailto:hi@obell.dev">Email</a>
               </div>
               <div class="link-column">
                 <a
                   class="link-segment"
-                  href=""
+                  href="https://github.com/freshollie"
                   style="border-bottom: 1px solid white"
                   >GitHub</a
                 >
-                <a class="link-segment" href="">CV</a>
+                <a class="link-segment" href="./docs/cv.pdf">CV</a>
               </div>
             </div>
           </div>
-          <div class="header-photo">
-            <img
-              src="./img/pp.jpg"
-              width="200px"
-              style="border: 1px solid white; margin: 16px"
-              title="Me at Tangled Roots - Boomtown 2024"
-            />
+          <div class="header-right">
+            <div class="header-photo">
+              <img
+                src="./img/pp.jpg"
+                width="300px"
+                style="border: 1px solid white; margin: 16px"
+                title="Me at Tangled Roots - Boomtown 2024"
+              />
+            </div>
           </div>
         </div>
         <div class="portfolio">
           <div class="portfolio-header">
-            <h2 class="portfolio-title">Portfolio</h2>
+            <div class="portfolio-title-container">
+              <h2 class="portfolio-title">Portfolio</h2>
+            </div>
           </div>
-          <div class="portfolio-main">
+          <div class="portfolio-main" style="flex-direction: row-reverse">
+            <div class="portfolio-bio" style="border-left: 1px solid white">
+              <div
+                class="portfolio-project-header"
+                style="background-color: rgb(255, 0, 255); color: black"
+              >
+                <div>
+                  <div class="portfolio-project-title-container">
+                    <h3 class="portfolio-project-title" style="text-align: end">
+                      HOME
+                    </h3>
+                    <h3 class="portfolio-project-title" style="text-align: end">
+                      RAVE
+                    </h3>
+                  </div>
+                </div>
+                <p style="font-size: 12px; text-align: end">EST 2024</p>
+              </div>
+              <div class="portfolio-bio-content-sub-header">
+                <div class="portfolio-job-title">Technician & Promoter</div>
+              </div>
+              <div class="portfolio-bio-content">
+                <div class="portfolio-bio-content-stats">
+                  <div class="portfolio-bio-content-stat">
+                    <span style="font-size: 42px">21</span>
+                    <span style="font-size: 12px">Lights</span>
+                  </div>
+                  <div class="portfolio-bio-content-stat">
+                    <span style="font-size: 42px">6</span>
+                    <span style="font-size: 12px">Lasers</span>
+                  </div>
+                  <div class="portfolio-bio-content-stat">
+                    <span style="font-size: 42px">1</span>
+                    <span style="font-size: 12px">Universe</span>
+                  </div>
+                </div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>What</td>
+                      <td>A multi genre series of electronic music events</td>
+                    </tr>
+                    <tr>
+                      <td>Role</td>
+                      <td>Design, curation, build, and operation</td>
+                    </tr>
+                    <tr>
+                      <td>Control</td>
+                      <td>
+                        <a href="#">Captivate 2.0</a> with
+                        <a href="#">custom additions</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Network</td>
+                      <td>One Art-Net node, one DMX universe</td>
+                    </tr>
+                    <tr>
+                      <td>Fixtures</td>
+                      <td>Beams, washes, strobes, spiders, lasers</td>
+                    </tr>
+                    <tr>
+                      <td>Operation</td>
+                      <td>
+                        Wireless MIDI controller, with lighting profiles
+                        designed to run without a screen. Group dimmers,
+                        sequence selection, hot-keys
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Footage</td>
+                      <td>Filmed and edited into multicam showcases</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
             <div class="portfolio-stage">
               <div class="truss">
                 <div class="moving-head">
@@ -114,25 +254,228 @@
                 <div class="moving-head">
                   <div class="moving-head-beam"></div>
                 </div>
+                <div class="moving-head">
+                  <div class="moving-head-beam"></div>
+                </div>
+                <div class="moving-head">
+                  <div class="moving-head-beam"></div>
+                </div>
+              </div>
+              <div class="center">
+                <div class="highlight-video">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/n0BqVNxBdHQ?si=SH5aQJVhKBIcqsCr&amp;controls=0&amp;start=255"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="
+                      accelerometer;
+                      autoplay;
+                      clipboard-write;
+                      encrypted-media;
+                      gyroscope;
+                      picture-in-picture;
+                      web-share;
+                    "
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <div class="portfolio-stage-content">
+                  <div class="portfolio-photo"></div>
+                  <div class="portfolio-photo"></div>
+                  <div class="portfolio-photo"></div>
+                  <div class="portfolio-photo"></div>
+                  <div class="portfolio-photo"></div>
+                  <div class="portfolio-photo"></div>
+                </div>
               </div>
             </div>
-            <div class="portfolio-links">
-              <div class="portfolio-project-title-container">
-                <h3 class="portfolio-project-title">HOME</h3>
-                <h3 class="portfolio-project-title">RAVE</h3>
+          </div>
+          <div class="portfolio-main">
+            <div class="portfolio-bio" style="border-right: 1px solid white">
+              <div
+                class="portfolio-project-header"
+                style="background-color: rgb(0, 183, 255); color: black"
+              >
+                <div>
+                  <div class="portfolio-project-title-container">
+                    <h3 class="portfolio-project-title">BELL</h3>
+                    <h3 class="portfolio-project-title">FEST</h3>
+                  </div>
+                </div>
+                <p style="font-size: 12px">2026</p>
               </div>
-               <div class="portfolio-project-title-container">
-                <h3 class="portfolio-project-title">BELL</h3>
-                <h3 class="portfolio-project-title">FEST</h3>
+              <div class="portfolio-bio-content-sub-header">
+                <div class="portfolio-job-title">Laser Technician</div>
+              </div>
+              <div class="portfolio-bio-content">
+                <div class="portfolio-bio-content-stats">
+                  <div class="portfolio-bio-content-stat">
+                    <span style="font-size: 42px">16</span>
+                    <span style="font-size: 12px">Lights</span>
+                  </div>
+                  <div class="portfolio-bio-content-stat">
+                    <span style="font-size: 42px">2</span>
+                    <span style="font-size: 12px">Lasers</span>
+                  </div>
+                  <div class="portfolio-bio-content-stat">
+                    <span style="font-size: 42px">2</span>
+                    <span style="font-size: 12px">Universes</span>
+                  </div>
+                </div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Lasers</td>
+                      <td>Installed and safely operated 2 x 3W show lasers</td>
+                    </tr>
+                    <tr>
+                      <td>Control</td>
+                      <td>
+                        Laser control via DMX using
+                        <a href="https://github.com/spensbot/captivate"
+                          >Captivate</a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Cueing</td>
+                      <td>Keyboard hotkeys, following show notes</td>
+                    </tr>
+                    <tr>
+                      <td>Lighting</td>
+                      <td>Wolfmix W1 with wireless DMX</td>
+                    </tr>
+                    <tr>
+                      <td>Sound</td>
+                      <td>
+                        Behringer X32 with digital stage boxes and in-ear
+                        monitors for band members
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>AV</td>
+                      <td>Assisted with setup and teardown</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="portfolio-stage">
+              <div class="center">
+                <div class="highlight-video">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/tM7PJp5xd_k?si=cTqsV56Z-Y1kPdhp&amp;controls=0&amp;start=1390"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="
+                      accelerometer;
+                      autoplay;
+                      clipboard-write;
+                      encrypted-media;
+                      gyroscope;
+                      picture-in-picture;
+                      web-share;
+                    "
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <div class="portfolio-stage-content">
+                  <div class="portfolio-photo"></div>
+                  <div class="portfolio-photo"></div>
+                  <div class="portfolio-photo"></div>
+                  <div class="portfolio-photo"></div>
+                  <div class="portfolio-photo"></div>
+                  <div class="portfolio-photo"></div>
+                </div>
+              </div>
+              <div style="display: flex; justify-content: center">
+                <div class="truss" style="max-width: 1200px">
+                  <div class="laser">
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                  </div>
+                  <div class="laser opposite">
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                    <div class="laser-beam"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div class="portfolio">
           <div class="portfolio-header">
-            <h2 class="portfolio-title">Software</h2>
+            <div class="portfolio-title-container">
+              <h2 class="portfolio-title">Software</h2>
+            </div>
           </div>
-          <div style="height: 300px"></div>
+          <div class="portfolio-main">
+            <div class="center" style="padding: 16px; width: 100%">
+              <span>Content under construction</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          <p style="margin: 0">Crafted by hand - © Oliver Bell (2026)</p>
         </div>
       </div>
     </div>

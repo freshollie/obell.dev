@@ -1,5 +1,6 @@
 // Simple live-reload server. No dependencies.
 // Usage: node server.js   (then open http://localhost:3000)
+// (AI Generated Slop tbh)
 
 const http = require("http");
 const fs = require("fs");

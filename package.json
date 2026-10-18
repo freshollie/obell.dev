@@ -9,6 +9,7 @@
     "serve": "^14.2.6"
   },
   "scripts": {
-    "start": "serve static"
+    "start": "serve static",
+    "dev": "node dev.js"
   }
 }

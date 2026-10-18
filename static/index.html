@@ -14,7 +14,7 @@
         const beam = document.querySelectorAll(".moving-head-beam")[address];
         let it = 0 + address * phase;
         while (true) {
-          const angle = Math.sin(it / 90) * 30;
+          const angle = Math.sin(it / 180) * 30;
           beam.setAttribute(
             "style",
             `transform: translateX(-50%) rotate(${angle}deg);` + `opacity: 0.7;`,
@@ -31,7 +31,7 @@
           .includes("opposite");
         let it = 0 + id * (phase * (opposite ? -1 : 1));
         for (let i = 0; i < frames; i++) {
-          const angle = Math.sin(it / 160) * 45;
+          const angle = Math.sin(it / 320) * 45;
           beam.setAttribute(
             "style",
             `transform: translateX(-50%) rotate(${angle + 180}deg); ` +
@@ -65,7 +65,7 @@
             82,
             Math.random() * 720,
           ];
-          const frames = Math.random() * 300 + 60;
+          const frames = Math.random() * 600 + 300;
           const laserPhase =
             laserPrograms[Math.floor(Math.random() * laserPrograms.length)];
           await Promise.all(

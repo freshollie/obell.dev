@@ -236,7 +236,7 @@ a:hover {
 }
 
 .highlight-video {
-    border: 1px solid white;
+  border: 1px solid white;
   width: 100%;
   max-width: 848px;
   max-height: 480px;
@@ -244,7 +244,7 @@ a:hover {
   margin: 16px;
   background-color: black;
   overflow: hidden;
-   margin: 64px;
+  margin: 64px;
 }
 
 .portfolio-bio {
@@ -307,8 +307,8 @@ a:hover {
 }
 
 .moving-head {
-  width: 8px;
-  height: 4px;
+  min-width: 8px;
+  min-height: 4px;
   background-color: rgb(255, 0, 255);
   position: relative;
 }
@@ -389,18 +389,20 @@ a:hover {
 }
 
 @media (max-width: 1350px) {
-    .highlight-video {
-        width: 80%;
-        height: 320px;
-    }
+  .highlight-video {
+    width: 80%;
+    height: 320px;
+  }
 }
-
 
 @media (max-width: 500px) {
-    .column { margin-left: 0; margin-right: 0; border: none; }
-    
+  .column {
+    margin-left: 0;
+    margin-right: 0;
+    border: none;
+  }
 }
-    
+
 @media (max-width: 1050px) {
   .header {
     width: 100%;
@@ -459,21 +461,20 @@ a:hover {
   }
 
   .highlight-video {
-       width: 80%;
-        height: 320px;
-    }
+    width: 80%;
+    height: 320px;
+  }
 }
 
 @media (max-height: 800px) {
-    .link-segment {
-            height: 50px;
-    }
+  .link-segment {
+    height: 50px;
+  }
 }
 
-
 @media (max-width: 500px) {
-    .highlight-video {
-       width: 320px;
-        height: 180px;
-    }
+  .highlight-video {
+    width: 320px;
+    height: 180px;
+  }
 }

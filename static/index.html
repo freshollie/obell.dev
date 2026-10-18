@@ -78,11 +78,20 @@
         }
       };
 
-      window.addEventListener("load", () => {
+      const loadPPHQ= () => {
+        const img = document.getElementById('pp');
+        const full = new Image();
+        full.srcset = "img/pp.jpg 1x, img/pp_w900.jpg 2x, img/pp_w900.jpg 3x";
+        full.onload = () => { img.src = full.currentSrc; };
+        full.src = "photo-900.jpg";
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
         document
           .querySelectorAll(".moving-head-beam")
           .forEach((_, i) => movingHead(i, phase));
         runLasers();
+        loadPPHQ();
       });
     </script>
   </head>
@@ -131,8 +140,10 @@
           <div class="header-right">
             <div class="header-photo">
               <img
+                id="pp"
                 src="img/pp.jpg"
                 width="300px"
+                height="400px"
                 style="border: 1px solid white; margin: 16px"
                 title="Me at Tangled Roots - Boomtown 2024"
               />
@@ -263,7 +274,7 @@
                     width="100%"
                     height="100%"
                     src="https://www.youtube.com/embed/n0BqVNxBdHQ?si=SH5aQJVhKBIcqsCr&amp;controls=0&amp;start=255"
-                      srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/n0BqVNxBdHQ?autoplay=1&controls=0&start=255><img src=https://img.youtube.com/vi/n0BqVNxBdHQ/hqdefault.jpg alt='Home Rave 8.0'><span>▶</span></a>"
+                      srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/n0BqVNxBdHQ?autoplay=1&controls=0&start=255><img src=https://img.youtube.com/vi/n0BqVNxBdHQ/sddefault.jpg alt='Home Rave 8.0'><span>▶</span></a>"
                     title="Home Rave 8.0"
                     frameborder="0"
                     allow="
@@ -369,7 +380,7 @@
                     width="100%"
                     height="100%"
                     src="https://www.youtube.com/embed/tM7PJp5xd_k?si=cTqsV56Z-Y1kPdhp&amp;controls=0&amp;start=1390"
-                    srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/tM7PJp5xd_k?autoplay=1&start=1390><img src=https://img.youtube.com/vi/tM7PJp5xd_k/hqdefault.jpg alt='Home Rave 8.0'><span>▶</span></a>"
+                    srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/tM7PJp5xd_k?autoplay=1&controls=0&start=1390><img src=https://img.youtube.com/vi/tM7PJp5xd_k/sddefault.jpg alt='Home Rave 8.0'><span>▶</span></a>"
                     title="Bellfest 2026"
                     frameborder="0"
                     allow="
